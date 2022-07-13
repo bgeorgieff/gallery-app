@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs fxFlex fxLayout fxLayoutAlign="end">
+    <button mat-icon-button (click)="toggleSideNav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxHide.xs>
+    <a routerLink="/home" class="home-link">Home</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs class="nav-container">
+    <ul fxLayout class="navbar-menu">
+      <li class="nav-option">
+        <a
+          fxFlexFill
+          fxLayoutAlign="center center"
+          routerLink="/gallery/paintings"
+          routerLinkActive="active"
+          class="nav-link"
+          >Gallery</a
+        >
+      </li>
+      <li class="nav-option">
+        <a
+          fxFlexFill
+          fxLayoutAlign="center center"
+          routerLink="/about/contact-me"
+          routerLinkActive="active"
+          class="nav-link"
+          >Contact me</a
+        >
+      </li>
+      <li class="nav-option">
+        <a
+          fxFlexFill
+          fxLayoutAlign="center center"
+          routerLink="/about/my-story"
+          routerLinkActive="active"
+          class="nav-link"
+          >About me</a
+        >
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

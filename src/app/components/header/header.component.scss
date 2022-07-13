@@ -1,0 +1,28 @@
+@use "src/styles/colors" as colors;
+
+.nav-container {
+  height: 100%;
+  .navbar-menu {
+    list-style: none;
+    margin: 0;
+  }
+}
+
+.nav-option {
+  width: 120px;
+}
+
+.home-link, .nav-link {
+  color: colors.$base-light-max;
+  text-decoration: none;
+}
+
+.nav-link {
+  padding: 0 10px 0 10px;
+  &.active {
+    background-color: colors.$base-light-purple;
+  }
+  &:hover {
+    background-color: colors.$base-dark-purple;
+  }
+}

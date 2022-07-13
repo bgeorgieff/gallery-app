@@ -1,35 +1,25 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HomePageComponent } from "./core/pages/home-page/home-page.component";
 
 const routes: Routes = [
   {
     path: "",
+    redirectTo: "home",
     pathMatch: "full",
-    component: HomePageComponent,
   },
   {
     path: "home",
-    redirectTo: "",
-    loadChildren: () => import("./core/core.module").then((m) => m.CoreModule),
-  },
-  {
-    path: "auth",
-    loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule),
-  },
-  {
-    path: "gallery",
     loadChildren: () =>
-      import("./gallery/gallery.module").then((m) => m.GalleryModule),
+      import("./modules/home/home.module").then((m) => m.HomeModule),
   },
-  {
-    path: "user",
-    loadChildren: () => import("./user/user.module").then((m) => m.UserModule),
-  },
+  { path: 'about', loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule) },
+  { path: 'gallery', loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryModule) },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
