@@ -1,4 +1,4 @@
-<div class="carousel">
+<section class="carousel">
   <ng-container *ngFor="let slide of slides; let i = index">
     <img
       *ngIf="i === currentSlide"
@@ -13,4 +13,6 @@
   <button class="control next" (click)="onNextClick()">
     <span class="arrow right"></span>
   </button>
-</div>
+  <h1 class="top-text">This is Ludmila Ivanova</h1>
+  <p class="top-text-small">personal gallery</p>
+</section>

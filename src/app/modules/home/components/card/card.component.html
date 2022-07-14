@@ -1,4 +1,4 @@
-<div
+<section
   fxLayout="row wrap"
   fxLayout.lt-sm="column wrap"
   fxLayoutAlign="center center"
@@ -8,22 +8,27 @@
     *ngFor="let item of cardItem | slice: 0:6"
     class="card-container"
   >
-    <mat-card class="single-card">
+    <mat-card
+      class="single-card"
+      inViewport
+      [inViewportOptions]="{ threshold: [0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
       <img
         mat-card-image
         src="https://material.angular.io/assets/img/examples/shiba2.jpg"
         alt="Photo of a Shiba Inu"
       />
       <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz
-          breeds of dog from Japan. A small, agile dog that copes very well with
-          mountainous terrain, the Shiba Inu was originally bred for hunting.
-        </p>
+        <p>Name:</p>
+        <p>Size:</p>
+        <p>Created on:</p>
+        <p>Id number:</p>
+        <p>Description:</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button>SHARE</button>
       </mat-card-actions>
     </mat-card>
   </div>
-</div>
+</section>

@@ -1,10 +1,4 @@
-import {
-  animate,
-  style,
-  transition,
-  trigger,
-  useAnimation,
-} from "@angular/animations";
+import { animate, style, transition, trigger } from "@angular/animations";
 import {
   Component,
   Input,

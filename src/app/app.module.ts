@@ -8,10 +8,15 @@ import { FormsModule } from "@angular/forms";
 import { SideNavListComponent } from "./components/side-nav-list/side-nav-list.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HeaderComponent } from "./components/header/header.component";
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from "./components/footer/footer.component";
 
 @NgModule({
-  declarations: [AppComponent, SideNavListComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    SideNavListComponent,
+    HeaderComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

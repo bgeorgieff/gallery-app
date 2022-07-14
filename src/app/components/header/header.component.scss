@@ -1,5 +1,16 @@
 @use "src/styles/colors" as colors;
 
+.header-container {
+  background-color: colors.$base-dark-max;
+  .white-icon {
+    color: colors.$base-light-max;
+    svg {
+      fill: colors.$base-light-max;
+    }
+  }
+  
+}
+
 .nav-container {
   height: 100%;
   .navbar-menu {

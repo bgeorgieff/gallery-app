@@ -1,8 +1,52 @@
 
 .card-container {
-  margin: 16px 0;
+  margin: 36px 0;
   .single-card {
     margin: 0 auto;
     width: calc(100% - 25%);
   }
+}
+
+.fade-in {
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
+
+p {
+  font-family: Lato;
+}
+
+h1 {
+  position: fixed;
+  top: 0;
+  padding-bottom: 5%;
+}
+
+.test {
+  text-align: center;
+  height: 40px;
+  margin-bottom: 120vh;
+  margin-top: 120vh;
+  border: 1px solid #000000;
 }

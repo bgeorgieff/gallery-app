@@ -1,0 +1,15 @@
+@use "src/styles/colors" as colors;
+
+.footer-container {
+  position: relative;
+  // top: 100%;
+  bottom: 0;
+  background-color: colors.$base-dark-max;
+  .footer-txt {
+    text-align: center;
+    font-weight: 500;
+    padding: 3px 0px;
+    margin: 0;
+    color: colors.$base-light-max;
+  }
+}

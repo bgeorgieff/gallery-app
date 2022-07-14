@@ -1,19 +1,38 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  Output,
+  Renderer2,
+  ViewChild,
+} from "@angular/core";
+import { Classes } from "src/app/enums/classes.enum";
 
 @Component({
   selector: "app-card",
   templateUrl: "./card.component.html",
   styleUrls: ["./card.component.scss"],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() cardItem = [...Array(8)];
-  breakpoint!: number;
 
-  ngOnInit(): void {
-    this.breakpoint = window.innerWidth <= 600 ? 1 : 2;
-  }
+  constructor(private renderer: Renderer2) {}
 
-  onResize(event: any) {
-    this.breakpoint = event.target.innerWidth <= 600 ? 1 : 2;
+  onIntersection({
+    target,
+    visible,
+  }: {
+    target: Element;
+    visible: boolean;
+  }): void {
+    this.renderer.addClass(
+      target,
+      visible ? Classes.cardAnimationClass : "inactive"
+    );
+    this.renderer.removeClass(
+      target,
+      visible ? "inactive" : Classes.cardAnimationClass
+    );
   }
 }
