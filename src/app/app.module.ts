@@ -9,6 +9,7 @@ import { SideNavListComponent } from "./components/side-nav-list/side-nav-list.c
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from "./components/footer/footer.component";
     MaterialModule,
     FormsModule,
     FlexLayoutModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

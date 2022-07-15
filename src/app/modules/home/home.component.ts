@@ -1,16 +1,34 @@
-import { Component } from "@angular/core";
-import { Slide } from "../../interfaces/carousel.interface";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ICard } from "src/app/interfaces/card.interface";
+import { GalleryService } from "src/app/services/gallery.service";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent {
-  slides: Slide[] = [
-    { src: "/assets/images/pexels-artūras-kokorevas-12670601.jpg" },
-    { src: "/assets/images/pexels-chris-larson-1123567.jpg" },
-    { src: "/assets/images/pexels-greg-gulik-1001435.jpg" },
-    { src: "/assets/images/pexels-luis-quintero-2106203.jpg" },
-    { src: "/assets/images/pexels-wendy-wei-2986357.jpg" },
-  ];
+export class HomeComponent implements OnInit, OnDestroy {
+  subscriptions: Subscription[] = [];
+  featured: ICard[] = [];
+  allPaintings: ICard[] = [];
+
+  constructor(private galleryService: GalleryService) {}
+
+  ngOnInit(): void {
+    this.subscriptions.push(
+      this.galleryService.getAllPainting().subscribe((paintings: ICard[]) => {
+        paintings.forEach((painting) => {
+          if (painting.isFeatured) {
+            this.featured.push(painting);
+          } else {
+            this.allPaintings.push(painting);
+          }
+        });
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
 }

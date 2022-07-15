@@ -6,7 +6,7 @@ import {
   OnInit,
   SimpleChanges,
 } from "@angular/core";
-import { Slide } from "src/app/interfaces/carousel.interface";
+import { ICard } from "src/app/interfaces/card.interface";
 
 @Component({
   selector: "app-carousel",
@@ -23,9 +23,9 @@ import { Slide } from "src/app/interfaces/carousel.interface";
   ],
 })
 export class CarouselComponent implements OnInit, OnChanges {
-  @Input() slides: Slide[] = [];
+  @Input() slides: ICard[] = [];
   @Input() autoSlide = false;
-  @Input() autoSlideInterval = 3000;
+  @Input() autoSlideInterval = 4000;
   currentSlide = 0;
 
   ngOnInit(): void {
@@ -59,7 +59,7 @@ export class CarouselComponent implements OnInit, OnChanges {
 
   preloadImages() {
     for (const slide of this.slides) {
-      new Image().src = slide.src;
+      new Image().src = slide.imageUrl;
     }
   }
 }
