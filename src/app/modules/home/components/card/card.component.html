@@ -21,7 +21,9 @@
       />
       <mat-card-actions>
         <button mat-button>SHARE</button>
-        <button mat-button>View Details</button>
+        <button mat-button (click)="openDetails(painting)" style="margin: 0">
+          View Details
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

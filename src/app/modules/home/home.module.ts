@@ -7,9 +7,16 @@ import { CarouselComponent } from "./components/carousel/carousel.component";
 import { MaterialModule } from "../material/material.module";
 import { CardComponent } from "./components/card/card.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { ModalWindowComponent } from "./components/modal-window/modal-window.component";
 
 @NgModule({
-  declarations: [HomeComponent, CarouselComponent, CardComponent],
+  declarations: [
+    HomeComponent,
+    CarouselComponent,
+    CardComponent,
+    ModalWindowComponent,
+  ],
+  entryComponents: [ModalWindowComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
