@@ -1,0 +1,31 @@
+@use "src/styles/colors" as colors;
+
+.modal-container {
+  .painting-container {
+    max-width: 450px;
+    height: fit-content;
+    display: block;
+    .painting {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .description-container {
+    margin-left: 26px;
+    width: 100%;
+    .modal-btn {
+      color: colors.$base-light-max;
+      background-color: colors.$base-dark-max; 
+      transition: 0.5s ease-in-out;
+      border: 1px solid colors.$base-dark-max;
+      &:hover {
+        background: colors.$base-light-max;
+        color: colors.$base-dark-max; 
+      }
+    }
+    @media screen and(max-width: 600px) {
+      margin-left: 0;
+    }
+  }
+}
