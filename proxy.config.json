@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target": "https://gallery-api-app.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/hubs": {
+    "target": "https://gallery-api-app.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

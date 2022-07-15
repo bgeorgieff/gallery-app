@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from "@angular/core";
 import { Classes } from "src/app/enums/classes.enum";
+import { ICard } from "src/app/interfaces/card.interface";
 
 @Component({
   selector: "app-card",
@@ -15,7 +16,7 @@ import { Classes } from "src/app/enums/classes.enum";
   styleUrls: ["./card.component.scss"],
 })
 export class CardComponent {
-  @Input() cardItem = [...Array(8)];
+  @Input() paintings: ICard[] = [];
 
   constructor(private renderer: Renderer2) {}
 
