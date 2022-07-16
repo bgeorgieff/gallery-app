@@ -1,7 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./styles/colors" as colors;
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
 @import '~@angular/material/theming';
 
+@mixin btn {
+  cursor: pointer;
+  width: 80px;
+  min-width: fit-content;
+  height: 37px;
+  border-radius: 6px;
+  color: colors.$base-light-max;
+  background-color: colors.$base-dark-max; 
+  transition: 0.3s ease-in-out;
+  border: 1px solid colors.$base-dark-max;
+  font-weight: 500;
+}
 
 html, body { 
   height: 100%; 
@@ -19,4 +32,20 @@ $custom-typography: mat-typography-config(
 );
 
 @include mat-core($custom-typography);
+
+
+
+.btn-disabled {
+  @include btn();
+  border: none;
+  cursor:auto;
+}
+
+.btn {
+  @include btn();
+  &:hover {
+    background: colors.$base-light-max;
+    color: colors.$base-dark-max; 
+  }
+}
 

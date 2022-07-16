@@ -1,29 +1,41 @@
 <div
   fxLayout.gt-sm="row"
   fxLayout.lt-sm="column"
-  fxLayoutAlign="center"
+  fxLayoutAlign="center center"
   class="modal-container"
 >
-  <div fxFlex="50%" class="painting-container">
-    <img
-      class="painting"
-      [src]="painting.imageUrl"
-      [alt]="painting.imageAltTxt"
-    />
+  <div class="painting-container">
+    <div>
+      <img
+        class="painting"
+        [src]="painting.imageUrl"
+        [alt]="painting.imageAltTxt"
+      />
+      <img
+        (click)="openImageView()"
+        class="enlarge-symbol"
+        [src]="enlargeSymbol"
+        alt="enlarge symbol"
+      />
+    </div>
   </div>
-  <div fxFlex="50%" class="description-container">
-    <h1>Name: {{ painting.name }}</h1>
-    <p>Painting Id: {{ painting.uniqueId }}</p>
-    <p>Date Created: {{ painting.dateCreated }}</p>
-    <p>Size: {{ painting.size }}</p>
-    <p>Description: {{ painting.description }}</p>
-    <button
-      class="modal-btn"
-      mat-button
-      mat-dialog-close
-      (click)="makeEnquiry()"
-    >
+  <div class="description-container">
+    <h1><span>Name:</span> {{ painting.name }}</h1>
+    <p>
+      <span class="painting-info-txt">Ref. No.:</span> {{ painting.uniqueId }}
+    </p>
+    <p>
+      <span class="painting-info-txt">Date Created:</span>
+      {{ painting.dateCreated }}
+    </p>
+    <p><span class="painting-info-txt">Size:</span> {{ painting.size }}</p>
+    <p>
+      <span class="painting-info-txt">Description:</span>
+      {{ painting.description }}
+    </p>
+    <button class="btn" mat-dialog-close (click)="makeEnquiry()">
       Make an enquiry
     </button>
   </div>
 </div>
+<app-image-view></app-image-view>

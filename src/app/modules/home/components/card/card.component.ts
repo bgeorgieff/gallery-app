@@ -1,12 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  Output,
-  Renderer2,
-  ViewChild,
-} from "@angular/core";
+import { Component, Input, Renderer2 } from "@angular/core";
 import { Classes } from "src/app/enums/classes.enum";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalWindowComponent } from "../modal-window/modal-window.component";

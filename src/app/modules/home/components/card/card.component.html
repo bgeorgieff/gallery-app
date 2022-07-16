@@ -1,6 +1,6 @@
 <section
   fxLayout="row wrap"
-  fxLayout.lt-sm="column wrap"
+  fxLayout.lt-md="column wrap"
   fxLayoutAlign="center center"
 >
   <div
@@ -19,9 +19,13 @@
         [src]="painting.imageUrl"
         [alt]="painting.imageAltTxt"
       />
-      <mat-card-actions>
-        <button mat-button>SHARE</button>
-        <button mat-button (click)="openDetails(painting)" style="margin: 0">
+      <mat-card-actions class="btn-container">
+        <button class="btn" type="button">Share</button>
+        <button
+          class="btn vertical-spacing"
+          (click)="openDetails(painting)"
+          type="button"
+        >
           View Details
         </button>
       </mat-card-actions>
