@@ -8,6 +8,7 @@ import { MaterialModule } from "../material/material.module";
 import { CardComponent } from "./components/card/card.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ModalWindowComponent } from "./components/modal-window/modal-window.component";
+import { ImageViewModule } from "../image-view/image-view.module";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ModalWindowComponent } from "./components/modal-window/modal-window.com
     MaterialModule,
     FlexLayoutModule,
     InViewportModule,
+    ImageViewModule,
   ],
 })
 export class HomeModule {}

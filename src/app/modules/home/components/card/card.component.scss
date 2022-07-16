@@ -3,7 +3,13 @@
   margin: 36px 0;
   .single-card {
     margin: 0 auto;
-    width: calc(100% - 25%);
+    width: calc(100% - 100px);
+    .card-btn {
+      margin-left: 4px;
+      @media screen and(max-width: 600px) {
+        margin-top: 4px;
+      }
+    }
   }
 }
 
@@ -33,20 +39,14 @@
   }
 }
 
-p {
-  font-family: Lato;
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-h1 {
-  position: fixed;
-  top: 0;
-  padding-bottom: 5%;
-}
-
-.test {
-  text-align: center;
-  height: 40px;
-  margin-bottom: 120vh;
-  margin-top: 120vh;
-  border: 1px solid #000000;
+.btn-container .vertical-spacing {
+  @media screen and(max-width: 335px) {
+    margin-top: 16px;
+  }
 }

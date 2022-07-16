@@ -1,31 +1,43 @@
 @use "src/styles/colors" as colors;
 
 .modal-container {
+  height: 100%;
   .painting-container {
-    max-width: 450px;
-    height: fit-content;
-    display: block;
-    .painting {
-      width: 100%;
-      height: 100%;
-    }
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
   }
   
   .description-container {
-    margin-left: 26px;
-    width: 100%;
-    .modal-btn {
-      color: colors.$base-light-max;
-      background-color: colors.$base-dark-max; 
-      transition: 0.5s ease-in-out;
-      border: 1px solid colors.$base-dark-max;
-      &:hover {
-        background: colors.$base-light-max;
-        color: colors.$base-dark-max; 
-      }
+    width: 90%;
+    padding: 16px;
+    .painting-info-txt {
+      font-weight: 700;
     }
     @media screen and(max-width: 600px) {
       margin-left: 0;
     }
+  }
+}
+
+div {
+  position: relative;
+  .painting {
+    max-width: 400px;
+    height: auto;
+    display: block;
+  }
+  
+  .enlarge-symbol {
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    width: 30px;
+    height: 30px;
   }
 }

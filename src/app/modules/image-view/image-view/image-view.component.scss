@@ -1,0 +1,56 @@
+@use "/src/styles/colors" as colors;
+
+.viewer-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: colors.$base-dark-max;
+  z-index: 10;
+  .viewer-content {
+    background-color: colors.$base-dark-max;
+    width: 100%;
+    height: 100%;
+  }
+  .close-button {
+    position: absolute;
+    right: 35px;
+    top: 10px;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    color: colors.$base-light-max;
+    cursor: pointer;
+    background-color: colors.$base-dark-max;
+    padding: 7px;
+    z-index: 11;
+    &::before, &::after {
+      position: absolute;
+      content: '';
+      height: 33px;
+      width: 2px;
+      background-color: colors.$base-light-max;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+  
+  .main-img {
+    /* Setup our image so it keeps aspect ratio, and is vertically centered */
+    display: block;
+    max-height:100%;
+    max-width:100%;
+    margin: auto;   /* margin: auto ensures image is horizontally centered */
+    /* Below transformation ensures image is centered vertically*/
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+
