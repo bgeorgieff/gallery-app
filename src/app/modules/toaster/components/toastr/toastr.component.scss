@@ -1,0 +1,86 @@
+p {
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+  padding: 8px;
+}
+
+.focus-in, .blur-out {
+  border-radius: 6px;
+  z-index: 999;
+  position: absolute;
+  top: calc(100vh - 85%);
+  right: 25px;
+  height: 8%;
+}
+
+.focus-in {
+  -webkit-animation: focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+          animation: focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.blur-out {
+	-webkit-animation: blur-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: blur-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+ @-webkit-keyframes blur-out {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+@keyframes blur-out {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+
+.success {
+  background-color: green;
+}
+
+.warning {
+  background-color: red;
+}
+
+.info {
+  background-color: yellow;
+}
+

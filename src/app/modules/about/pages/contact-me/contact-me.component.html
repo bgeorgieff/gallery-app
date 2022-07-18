@@ -1,4 +1,4 @@
-<section>
+<section class="contact-me-container">
   <app-title></app-title>
   <div class="form-container">
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" autocomplete="off">
@@ -65,7 +65,7 @@
               : 'form-option txt-area'
           "
           formControlName="message"
-          placeholder="Your message"
+          placeholder="Your Message"
         ></textarea>
         <div *ngIf="isInvalid('message')" class="error-message">
           <small *ngIf="contactForm.get('message')?.errors?.['required']"

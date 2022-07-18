@@ -4,6 +4,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-header (toggler)="sidenav.toggle()"></app-header>
+    <app-toast *ngIf="message" [message]="message" [type]="type"></app-toast>
     <main>
       <router-outlet></router-outlet>
     </main>
