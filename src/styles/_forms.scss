@@ -1,0 +1,54 @@
+@use "/src/styles/colors" as colors;
+
+@mixin margin-width {
+  margin: 36px auto;
+}
+
+@mixin border-options {
+  text-indent: 8px;
+  display: block;
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 6px;
+  margin: auto;
+  border: 1px solid colors.$base-dark-max;
+}
+
+.form-container {
+  margin: 0 auto;
+  min-width: calc(100% - 250px);
+  height: auto;
+  .input-container {
+    @include margin-width();
+    .input-lbl {
+      font-weight: 600;
+    }
+    .form-option {
+      @include border-options();
+    }
+    .form-option.txt-area {
+      height: 150px;
+      @include border-options();
+    }
+    .error-message {
+      color: colors.$base-dark-error;
+      font-weight: 500;
+    }
+    .error-border {
+      @include border-options();
+      border: 1px solid colors.$base-dark-error;
+    }
+    .error-border.txt-area{
+      height: 150px;
+      @include border-options();
+      border: 1px solid colors.$base-dark-error;
+    }
+  }
+  .btn-container {
+    @include margin-width();
+    padding-bottom: 16px;
+  }
+  .btn-disabled {
+    background-color: colors.$base-light-purple;
+  }
+}

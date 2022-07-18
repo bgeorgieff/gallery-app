@@ -1,51 +1,7 @@
-@use "/src/styles/colors" as colors;
+@use "/src/styles/forms" as forms;
 
-@mixin margin-width {
-  margin: 26px;
-}
-
-@mixin border-options {
-  width: 100%;
+.contact-me-container {
+  max-width: 800px;
   padding: 16px;
-  border-radius: 6px;
-  border: 1px solid colors.$base-dark-max;
-}
-
-.form-container {
-  margin: 0 auto;
-  width: calc(100% - 250px);
-  height: auto;
-  .input-container {
-    @include margin-width();
-    .input-lbl {
-      font-weight: 600;
-    }
-    .form-option {
-      @include border-options();
-    }
-    .form-option.txt-area {
-      height: 150px;
-      @include border-options();
-    }
-    .error-message {
-      color: colors.$base-dark-error;
-      font-weight: 500;
-    }
-    .error-border {
-      @include border-options();
-      border: 1px solid colors.$base-dark-error;
-    }
-    .error-border.txt-area{
-      height: 150px;
-      @include border-options();
-      border: 1px solid colors.$base-dark-error;
-    }
-  }
-  .btn-container {
-    @include margin-width();
-    padding-bottom: 16px;
-  }
-  .btn-disabled {
-    background-color: colors.$base-light-purple;
-  }
+  margin: auto;
 }
