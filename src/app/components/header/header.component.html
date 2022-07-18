@@ -39,6 +39,16 @@
           >About me</a
         >
       </li>
+      <li *ngIf="isLogged()" class="nav-option">
+        <a
+          fxFlexFill
+          fxLayoutAlign="center center"
+          routerLinkActive="active"
+          class="nav-link"
+          (click)="logOut()"
+          >Log Out</a
+        >
+      </li>
     </ul>
   </div>
 </mat-toolbar>

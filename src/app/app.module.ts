@@ -8,8 +8,9 @@ import { SideNavListComponent } from "./components/side-nav-list/side-nav-list.c
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToasterModule } from "./modules/toaster/toaster.module";
+import { AuthInterceptor } from "./components/interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { ToasterModule } from "./modules/toaster/toaster.module";
     HttpClientModule,
     ToasterModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

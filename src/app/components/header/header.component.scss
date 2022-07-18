@@ -29,6 +29,7 @@
 }
 
 .nav-link {
+  cursor: pointer;
   padding: 0 10px 0 10px;
   &.active {
     background-color: colors.$base-light-purple;
