@@ -109,9 +109,7 @@ export class AuthFormComponent implements OnInit, OnDestroy {
     if (this.login) {
       this.userService.login(formData).subscribe({
         next: (response) => {
-          document.cookie = `${Object.keys(response)}=${Object.values(
-            response
-          )};`;
+          this.userService.setCookie(response);
           this.router.navigate(["/home"]);
           this.toastrService.showMessage(
             MessageTxts.LoginSuccess,
@@ -127,14 +125,14 @@ export class AuthFormComponent implements OnInit, OnDestroy {
       });
     } else {
       this.userService.register(formData).subscribe({
-        next: (response) => {
+        next: () => {
           this.router.navigate(["/home"]);
           this.toastrService.showMessage(
             MessageTxts.RegisterSuccess,
             MessageType.success
           );
         },
-        error: (response) => {
+        error: () => {
           this.toastrService.showMessage(
             MessageTxts.RegisterFail,
             MessageType.warning

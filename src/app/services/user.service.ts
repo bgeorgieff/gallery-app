@@ -22,4 +22,32 @@ export class UserService {
   login(formData: IUser): Observable<IToken> {
     return this.http.post<IToken>(API.Endpoint(UserEndpoints.login), formData);
   }
+
+  isLoggedIn() {
+    return !!document.cookie.split("=")[1];
+  }
+
+  isAdmin() {
+    const cookie = document.cookie.split("=")[1] || "";
+    if (cookie) {
+      const { isAdmin } = JSON.parse(window.atob(cookie.split(".")[1]));
+      return !!isAdmin;
+    } else {
+      return false;
+    }
+  }
+
+  logOut() {
+    document.cookie = "token=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+  }
+
+  setCookie(response: IToken) {
+    document.cookie = `${Object.keys(response)}=${Object.values(
+      response
+    )};path=/`;
+  }
+
+  getCookie() {
+    return document.cookie.split("=")[1] || "";
+  }
 }
