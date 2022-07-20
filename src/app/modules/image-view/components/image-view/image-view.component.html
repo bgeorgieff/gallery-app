@@ -1,6 +1,8 @@
 <div *ngIf="view" class="viewer-container">
   <div class="viewer-content">
     <a class="close-button" (click)="closeImageView()"></a>
-    <img class="main-img" [src]="image" alt="imageAlt" />
+    <div class="main-img-container">
+      <img class="main-img" [src]="image" alt="imageAlt" />
+    </div>
   </div>
 </div>

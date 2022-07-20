@@ -21,7 +21,7 @@ import { ToastrService } from "src/app/services/toastr.service";
 })
 export class AddEditPaintingComponent implements OnInit, OnDestroy {
   id = this.activatedRoute.snapshot.paramMap.get("id");
-  painting?: ICard;
+  painting: ICard = {} as ICard;
   paintingForm!: FormGroup;
   file!: File;
   subscriptions: Subscription[] = [];
@@ -82,6 +82,12 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
 
   onFileChange($event: any) {
     this.file = $event.target.files[0];
+    const imgReader = new FileReader();
+    imgReader.readAsDataURL(this.file);
+    imgReader.onload = (_event) => {
+      const response = imgReader.result as string;
+      this.painting.imageUrl = response;
+    };
   }
 
   isInvalid(field: string) {

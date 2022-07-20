@@ -1,13 +1,18 @@
 <mat-toolbar class="header-container">
-  <div fxHide.gt-xs fxFlex fxLayout fxLayoutAlign="end">
+  <div fxLayoutAlign="start">
+    <a routerLink="/home" class="home-link">
+      <img [src]="logo" alt="altTxt" class="logo-img" />
+      <div fxFlex class="owner-name">
+        <p style="margin: 0">Ludmila Ivanova</p>
+      </div>
+    </a>
+  </div>
+  <div fxHide.gt-sm fxFlex fxLayout fxLayoutAlign="end">
     <button mat-icon-button (click)="toggleSideNav()">
       <mat-icon class="white-icon">menu</mat-icon>
     </button>
   </div>
-  <div fxHide.xs>
-    <a routerLink="/home" class="home-link">Home</a>
-  </div>
-  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs class="nav-container">
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-md class="nav-container">
     <ul fxLayout class="navbar-menu">
       <li class="nav-option">
         <a

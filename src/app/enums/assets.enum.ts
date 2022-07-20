@@ -1,3 +1,4 @@
 export enum Assets {
-  enlargeSymbol = "assets/enlarge-svgrepo-com.svg",
+  enlargeSymbol = "assets/enlarge.svg",
+  logo = "assets/paint-palette.svg",
 }

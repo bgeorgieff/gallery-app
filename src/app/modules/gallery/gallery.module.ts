@@ -10,6 +10,7 @@ import { AddEditPaintingComponent } from "./pages/add-edit-painting/add-edit-pai
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { TitleModule } from "../title/title.module";
+import { MaterialModule } from "../material/material.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TitleModule } from "../title/title.module";
     ImageViewModule,
     ReactiveFormsModule,
     TitleModule,
+    MaterialModule,
   ],
 })
 export class GalleryModule {}

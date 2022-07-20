@@ -1,18 +1,53 @@
-<app-title></app-title>
-<button *ngIf="isAdmin" class="btn" (click)="navigateToAdd()">Add new</button>
+<div
+  fxLayoutAlign="start center"
+  fxLayoutAlign.lt-md="center center"
+  *ngIf="isAdmin"
+  class="add-new"
+>
+  <h5 class="admin-msg">As admin you can now add new painting</h5>
+  <button class="btn" (click)="navigateToAdd()">Add new painting</button>
+</div>
 <section>
-  <div *ngFor="let painting of paintings" class="painting-container">
-    <div class="painting-container">
-      <img
-        [src]="painting.imageUrl"
-        [alt]="painting.imageAltTxt || 'some-painting'"
-      />
-    </div>
-    <div>{{ painting.name }}</div>
-    <div *ngIf="isAdmin">
-      <button class="btn" type="button" (click)="navigateToEdit(painting)">
-        Edit
-      </button>
+  <app-title></app-title>
+  <div
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column wrap"
+    class="gallery-container"
+  >
+    <div
+      fxFlex.gt-sm="30%"
+      *ngFor="let painting of paintings"
+      class="layout-container"
+    >
+      <div
+        inViewport
+        [inViewportOptions]="{ threshold: [0] }"
+        (inViewportAction)="onIntersection($event)"
+      >
+        <div class="painting-container">
+          <img
+            [src]="painting.imageUrl"
+            [alt]="painting.imageAltTxt || 'some-painting'"
+          />
+          <div>
+            <h3 class="painting-name">{{ painting.name }}</h3>
+          </div>
+        </div>
+        <div fxLayoutGap="8px">
+          <button type="button" class="btn" (click)="viewPainting(painting)">
+            View details
+          </button>
+          <ng-container *ngIf="isAdmin">
+            <button
+              class="btn"
+              type="button"
+              (click)="navigateToEdit(painting)"
+            >
+              Edit
+            </button>
+          </ng-container>
+        </div>
+      </div>
     </div>
   </div>
 </section>
