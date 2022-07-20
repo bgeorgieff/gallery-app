@@ -5,5 +5,7 @@ export enum MessageTxts {
   RegisterFail = "Registration failed, try another username",
   MailSent = "Sent email successful",
   MailSentFailed = "Send email failed",
-  PictureUploaded = "Successfully uploaded",
+  PictureUploaded = "Painting successfully created",
+  ThereIsSmthWrongWithPic = "There is something wrong with your input, please try again",
+  PictureUpdated = "Painting successfully updated",
 }

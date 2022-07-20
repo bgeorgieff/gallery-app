@@ -4,4 +4,6 @@ export enum PageTitles {
   aboutMe = "My Story",
   login = "Login",
   register = "Register",
+  addPainting = "Add Painting",
+  editPainting = "Edit Painting",
 }

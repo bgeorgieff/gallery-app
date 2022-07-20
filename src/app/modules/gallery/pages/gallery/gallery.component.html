@@ -1,1 +1,18 @@
-<p>gallery works!</p>
+<app-title></app-title>
+<button *ngIf="isAdmin" class="btn" (click)="navigateToAdd()">Add new</button>
+<section>
+  <div *ngFor="let painting of paintings" class="painting-container">
+    <div class="painting-container">
+      <img
+        [src]="painting.imageUrl"
+        [alt]="painting.imageAltTxt || 'some-painting'"
+      />
+    </div>
+    <div>{{ painting.name }}</div>
+    <div *ngIf="isAdmin">
+      <button class="btn" type="button" (click)="navigateToEdit(painting)">
+        Edit
+      </button>
+    </div>
+  </div>
+</section>
