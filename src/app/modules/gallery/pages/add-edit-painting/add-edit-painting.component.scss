@@ -1,0 +1,44 @@
+@use "/src/styles/forms" as forms;
+@use "/src/styles/colors" as colors;
+
+.painting-form-container {
+  max-width: 800px;
+  padding: 16px;
+  margin: 156px auto;
+}
+
+.image-container {
+  max-width: 350px;
+  height: auto;
+  margin: 0 auto;
+  .current-img-txt {
+    font-weight: 500;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.date-input-container {
+  .date-input {
+    border-radius: 6px;
+    border: 1px solid colors.$base-dark-max;
+    width: 110px;
+    height: 35px;
+    padding: 4px;
+  }
+}
+
+.featured-container {
+  display: flex;
+  align-items: center;
+  .featured-txt {
+    font-weight: 500;
+  }
+  .featured {
+    width: 20px;
+    height: 20px;
+  }
+}

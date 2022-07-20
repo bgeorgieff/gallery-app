@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions.push(
-      this.galleryService.getAllPainting().subscribe((paintings: ICard[]) => {
+      this.galleryService.getAllPaintings().subscribe((paintings: ICard[]) => {
         paintings.forEach((painting) => {
           if (painting.isFeatured) {
             this.featured.push(painting);

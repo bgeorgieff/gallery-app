@@ -10,21 +10,21 @@ import { ICard } from "../interfaces/card.interface";
 export class GalleryService {
   constructor(private http: HttpClient) {}
 
-  createNewPainting(painting: ICard): Observable<ICard> {
+  createNewPainting(formData: FormData): Observable<ICard> {
     return this.http.post<ICard>(
       API.Endpoint(GalleryEndPoints.MainRoute),
-      painting
+      formData
     );
   }
 
-  updatePainting(id: string, newItems: Partial<ICard>): Observable<ICard> {
+  updatePainting(id: string, newItems: FormData): Observable<ICard> {
     return this.http.patch<ICard>(
       API.Endpoint(GalleryEndPoints.SinglePainting(id)),
       newItems
     );
   }
 
-  getAllPainting(): Observable<ICard[]> {
+  getAllPaintings(): Observable<ICard[]> {
     return this.http.get<ICard[]>(API.Endpoint(GalleryEndPoints.MainRoute));
   }
 

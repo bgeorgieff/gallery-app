@@ -1,4 +1,5 @@
 export interface ICard {
+  _id?: string;
   imageUrl: string;
   imageAltTxt: string;
   name: string;
@@ -6,5 +7,5 @@ export interface ICard {
   size: string;
   uniqueId?: string;
   description: string;
-  isFeatured?: boolean;
+  isFeatured: boolean;
 }

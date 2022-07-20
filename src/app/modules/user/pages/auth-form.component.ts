@@ -7,7 +7,7 @@ import {
 } from "@angular/forms";
 import { PageTitles } from "src/app/enums/page-titles.enum";
 import { TitleService } from "src/app/services/title.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { Regex } from "src/app/enums/regex.enum";
 import { UserService } from "src/app/services/user.service";
@@ -21,9 +21,9 @@ import { MessageType } from "src/app/enums/message-types.enum";
   templateUrl: "./auth-form.component.html",
   styleUrls: ["./auth-form.component.scss"],
 })
-export class AuthFormComponent implements OnInit, OnDestroy {
+export class AuthFormComponent implements OnDestroy {
   authForm!: FormGroup;
-  login = true;
+  login = this.router.url === "/user/login" ? true : false;
   btnInput!: string;
   subscriptions: Subscription[] = [];
 
@@ -32,13 +32,8 @@ export class AuthFormComponent implements OnInit, OnDestroy {
     private router: Router,
     private titleService: TitleService,
     private userService: UserService,
-    private toastrService: ToastrService,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    this.router.url === "/user/login" ? this.login : (this.login = false);
-
+    private toastrService: ToastrService
+  ) {
     if (this.login) {
       this.authForm = this.formBuilder.group({
         email: new FormControl("", [
@@ -115,6 +110,7 @@ export class AuthFormComponent implements OnInit, OnDestroy {
             MessageTxts.LoginSuccess,
             MessageType.success
           );
+          this.authForm.reset();
         },
         error: () => {
           this.toastrService.showMessage(
@@ -131,6 +127,7 @@ export class AuthFormComponent implements OnInit, OnDestroy {
             MessageTxts.RegisterSuccess,
             MessageType.success
           );
+          this.authForm.reset();
         },
         error: () => {
           this.toastrService.showMessage(

@@ -1,3 +1,5 @@
+@use "/src/styles/colors" as colors;
+
 p {
   color: white;
   text-align: center;
@@ -73,14 +75,14 @@ p {
 }
 
 .success {
-  background-color: green;
+  background-color: colors.$base-dark-success;
 }
 
 .warning {
-  background-color: red;
+  background-color: colors.$base-dark-error;
 }
 
 .info {
-  background-color: yellow;
+  background-color: colors.$base-dark-warning;
 }
 

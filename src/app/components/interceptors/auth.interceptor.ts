@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = this.userService.getCookie();
     const authRequest = request.clone({
-      headers: request.headers.set("token", token),
+      headers: request.headers.set("Authorization", `Bearer ${token}`),
     });
 
     return next.handle(authRequest);

@@ -1,0 +1,68 @@
+<div class="auth-form-container">
+  <section>
+    <app-title></app-title>
+    <div class="form-container">
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="input-container">
+          <label for="email" class="input-lbl">Your email</label>
+          <input
+            id="email"
+            type="email"
+            [ngClass]="isInvalid('email') ? 'error-border' : 'form-option'"
+            formControlName="email"
+            placeholder="Your email"
+          />
+          <div *ngIf="isInvalid('email')" class="error-message">
+            <small *ngIf="authForm.get('email')?.errors?.['required']"
+              >Email is required!</small
+            >
+            <small *ngIf="authForm.get('email')?.errors?.['maxlength']">
+              Email cannot be longer than 56 characters!
+            </small>
+            <small *ngIf="authForm.get('email')?.errors?.['pattern']">
+              Use a valid email!
+            </small>
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="password" class="input-lbl">Password</label>
+          <input
+            id="password"
+            type="password"
+            [ngClass]="isInvalid('password') ? 'error-border' : 'form-option'"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <div *ngIf="isInvalid('password')" class="error-message">
+            <small *ngIf="authForm.get('password')?.errors?.['maxlength']"
+              >Password longer than 56 characters!</small
+            >
+          </div>
+        </div>
+        <div *ngIf="!login" class="input-container">
+          <label for="rePassword" class="input-lbl">Repeat password</label>
+          <input
+            id="rePassword"
+            type="password"
+            [ngClass]="isInvalid('rePassword') ? 'error-border' : 'form-option'"
+            formControlName="rePassword"
+            placeholder="Repeat Password"
+          />
+          <div *ngIf="isInvalid('rePassword')" class="error-message">
+            <small *ngIf="authForm.get('rePassword')?.errors?.['message']"
+              >Password and repeat password must be the same!</small
+            >
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" class="btn-container">
+          <button
+            type="submit"
+            [ngClass]="authForm.invalid ? 'btn-disabled' : 'btn'"
+          >
+            {{ btnInput }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

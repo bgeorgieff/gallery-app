@@ -1,0 +1,135 @@
+<div class="painting-form-container">
+  <section>
+    <app-title></app-title>
+    <form
+      class="form-container"
+      [formGroup]="paintingForm"
+      enctype="multipart/form-data"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="input-container">
+        <label for="name" class="input-lbl">Painting name</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="editName"
+          placeholder="Edit painting name"
+          [ngClass]="isInvalid('editName') ? 'error-border' : 'form-option'"
+        />
+        <div *ngIf="isInvalid('editName')" class="error-message">
+          <small *ngIf="paintingForm.get('editName')?.errors?.['required']"
+            >Name is required!</small
+          >
+        </div>
+      </div>
+      <div class="input-container">
+        <div *ngIf="painting?.imageUrl" class="image-container">
+          <p class="current-img-txt">Current image</p>
+          <img [src]="painting?.imageUrl" [alt]="painting?.imageAltTxt" />
+        </div>
+        <label for="file" class="input-lbl">{{
+          painting?.imageUrl ? "Choose new image" : "Upload file"
+        }}</label>
+        <div>
+          <input
+            id="file"
+            type="file"
+            formControlName="addFile"
+            placeholder="Choose image file"
+            (change)="onFileChange($event)"
+          />
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="alt-text" class="input-lbl">Image alt text</label>
+        <input
+          id="alt-text"
+          type="text"
+          formControlName="altText"
+          placeholder="Add image alt text"
+          [ngClass]="isInvalid('altText') ? 'error-border' : 'form-option'"
+        />
+        <div *ngIf="isInvalid('altText')" class="error-message">
+          <small *ngIf="paintingForm.get('altText')?.errors?.['required']"
+            >Alt text cannot be empty!</small
+          >
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="size" class="input-lbl">Dimentions</label>
+        <input
+          id="size"
+          type="text"
+          formControlName="size"
+          placeholder="Add painting dimentions"
+          [ngClass]="isInvalid('size') ? 'error-border' : 'form-option'"
+        />
+        <div *ngIf="isInvalid('size')" class="error-message">
+          <small *ngIf="paintingForm.get('size')?.errors?.['required']"
+            >Size cannot be empty!</small
+          >
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="date" class="input-lbl">Choose creation date</label>
+        <div class="date-input-container">
+          <input
+            id="date"
+            formControlName="date"
+            type="date"
+            placeholder="date created"
+            class="date-input"
+          />
+        </div>
+        <div *ngIf="isInvalid('date')" class="error-message">
+          <small *ngIf="paintingForm.get('date')?.errors?.['required']"
+            >Choose date of creation!</small
+          >
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="description" class="input-lbl">Painting description</label>
+        <input
+          id="description"
+          type="text"
+          formControlName="description"
+          placeholder="description"
+          [ngClass]="isInvalid('rePassword') ? 'error-border' : 'form-option'"
+        />
+        <div *ngIf="isInvalid('description')" class="error-message">
+          <small *ngIf="paintingForm.get('description')?.errors?.['required']"
+            >Description cannot be empty!</small
+          >
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="featured" class="input-lbl"
+          >Choose if this is a featured image</label
+        >
+        <div class="featured-container">
+          <span class="featured-txt">{{
+            paintingForm.get("featured")?.value
+              ? "Yes, mark as featured"
+              : "No, don't mark as featured"
+          }}</span>
+          <input
+            id="featured"
+            type="checkbox"
+            class="featured"
+            formControlName="featured"
+            placeholder="is featured"
+            [defaultChecked]="false"
+          />
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" class="btn-container">
+        <button
+          type="submit"
+          [ngClass]="paintingForm.invalid ? 'btn-disabled' : 'btn'"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
