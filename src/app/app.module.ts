@@ -11,6 +11,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToasterModule } from "./modules/toaster/toaster.module";
 import { AuthInterceptor } from "./components/interceptors/auth.interceptor";
+import { LoaderModule } from "./modules/loader/loader.module";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AuthInterceptor } from "./components/interceptors/auth.interceptor";
     FlexLayoutModule,
     HttpClientModule,
     ToasterModule,
+    LoaderModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

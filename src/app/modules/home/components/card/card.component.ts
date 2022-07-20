@@ -3,7 +3,6 @@ import { Classes } from "src/app/enums/classes.enum";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalWindowComponent } from "../modal-window/modal-window.component";
 import { ICard } from "src/app/interfaces/card.interface";
-
 @Component({
   selector: "app-card",
   templateUrl: "./card.component.html",

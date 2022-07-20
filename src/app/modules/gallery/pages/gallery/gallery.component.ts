@@ -5,6 +5,7 @@ import { Classes } from "src/app/enums/classes.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
 import { ICard } from "src/app/interfaces/card.interface";
 import { GalleryService } from "src/app/services/gallery.service";
+import { LoaderService } from "src/app/services/loader.service";
 import { TitleService } from "src/app/services/title.service";
 import { UserService } from "src/app/services/user.service";
 
@@ -23,19 +24,27 @@ export class GalleryComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private galleryService: GalleryService,
     private titleService: TitleService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private loaderService: LoaderService
   ) {}
 
   ngOnInit(): void {
+    this.loaderService.setLoading(true);
     this.isAdmin = this.userService.isAdmin();
     this.titleService.setTitle(PageTitles.gallery);
     this.subscriptions.push(
-      this.galleryService.getAllPaintings().subscribe((paintings: ICard[]) => {
-        paintings.forEach((painting) => {
-          this.paintings.push(painting);
-        });
+      this.galleryService.getAllPaintings().subscribe({
+        next: (paintings: ICard[]) => {
+          paintings.forEach((painting) => {
+            this.paintings.push(painting);
+          });
+        },
       })
     );
+  }
+
+  stopLoading() {
+    this.loaderService.setLoading(false);
   }
 
   onIntersection({
