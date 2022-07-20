@@ -19,7 +19,6 @@
     top: 10px;
     font-size: 18px;
     font-family: 'Arial', sans-serif;
-    color: colors.$base-light-max;
     cursor: pointer;
     background-color: colors.$base-dark-max;
     padding: 7px;
@@ -39,17 +38,21 @@
     }
   }
   
-  .main-img {
-    /* Setup our image so it keeps aspect ratio, and is vertically centered */
-    display: block;
-    max-height:100%;
-    max-width:100%;
-    margin: auto;   /* margin: auto ensures image is horizontally centered */
-    /* Below transformation ensures image is centered vertically*/
+  .main-img-container {
+    width: 50%;
+    height: auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    margin: auto;
+    .main-img {
+      /* Setup our image so it keeps aspect ratio, and is vertically centered */
+      display: block;
+      max-height:100%;
+      max-width:100%;
+    }
   }
+
 }
 
 

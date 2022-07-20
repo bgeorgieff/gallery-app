@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, Renderer2 } from "@angular/core";
 import { NavigationExtras, Router } from "@angular/router";
 import { Subscription } from "rxjs";
+import { Classes } from "src/app/enums/classes.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
 import { ICard } from "src/app/interfaces/card.interface";
 import { GalleryService } from "src/app/services/gallery.service";
@@ -21,7 +22,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
     private router: Router,
     private userService: UserService,
     private galleryService: GalleryService,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +36,28 @@ export class GalleryComponent implements OnInit, OnDestroy {
         });
       })
     );
+  }
+
+  onIntersection({
+    target,
+    visible,
+  }: {
+    target: Element;
+    visible: boolean;
+  }): void {
+    this.renderer.removeClass(target, Classes.finishedCardAnimation);
+    this.renderer.addClass(
+      target,
+      visible ? Classes.cardAnimationClass : Classes.finishedCardAnimation
+    );
+    this.renderer.removeClass(
+      target,
+      !visible ? Classes.cardAnimationClass : Classes.inactive
+    );
+  }
+
+  viewPainting(painting: ICard) {
+    this.router.navigate([`/gallery/painting/${painting._id}`]);
   }
 
   navigateToAdd() {

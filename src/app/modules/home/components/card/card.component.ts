@@ -21,15 +21,15 @@ export class CardComponent {
     target: Element;
     visible: boolean;
   }): void {
+    this.renderer.removeClass(target, Classes.finishedCardAnimation);
     this.renderer.addClass(
       target,
-      visible ? Classes.cardAnimationClass : "inactive"
+      visible ? Classes.cardAnimationClass : Classes.finishedCardAnimation
     );
-    // TODO fix this part of the animation as it can get to a state of constant jumping right now
-    // this.renderer.removeClass(
-    //   target,
-    //   visible ? "inactive" : Classes.cardAnimationClass
-    // );
+    this.renderer.removeClass(
+      target,
+      !visible ? Classes.cardAnimationClass : Classes.inactive
+    );
   }
 
   openDetails(painting: ICard) {
