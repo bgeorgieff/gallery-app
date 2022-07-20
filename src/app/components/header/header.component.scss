@@ -37,9 +37,9 @@
   cursor: pointer;
   padding: 0 10px 0 10px;
   &.active {
-    background-color: colors.$base-light-purple;
+    background-color: colors.$base-light-grey;
   }
   &:hover {
-    background-color: colors.$base-dark-purple;
+    background-color: colors.$base-dark-grey;
   }
 }

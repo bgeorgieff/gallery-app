@@ -28,6 +28,7 @@
           <img
             [src]="painting.imageUrl"
             [alt]="painting.imageAltTxt || 'some-painting'"
+            (load)="stopLoading()"
           />
           <div>
             <h3 class="painting-name">{{ painting.name }}</h3>

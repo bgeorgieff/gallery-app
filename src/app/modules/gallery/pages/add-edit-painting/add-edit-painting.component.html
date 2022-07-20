@@ -126,6 +126,7 @@
         <button
           type="submit"
           [ngClass]="paintingForm.invalid ? 'btn-disabled' : 'btn'"
+          [disabled]="paintingForm.invalid"
         >
           Submit
         </button>

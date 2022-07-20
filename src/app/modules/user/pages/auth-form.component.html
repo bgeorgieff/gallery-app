@@ -58,6 +58,7 @@
           <button
             type="submit"
             [ngClass]="authForm.invalid ? 'btn-disabled' : 'btn'"
+            [disabled]="authForm.invalid"
           >
             {{ btnInput }}
           </button>

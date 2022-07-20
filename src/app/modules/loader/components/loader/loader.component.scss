@@ -1,0 +1,43 @@
+@use "/src/styles/colors" as colors;
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: fixed;
+  z-index: 10;
+  background-color: colors.$base-dark-max;
+}
+
+.load{
+  padding: 5px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform-origin: center center;
+  transform:translate(-50%, -50%) rotate(135deg);
+  width:50px;
+  height:50px;
+  
+}
+.load hr{
+  border:0;
+  margin:0;
+  width:40%;
+  height:40%;
+  position:absolute;
+  border-radius:50%;
+  animation:spin 2s ease infinite;
+}
+
+.load :first-child{background:colors.$base-light-loader-blue;animation-delay:-1.5s}
+.load :nth-child(2){background:colors.$base-light-loader-orange;animation-delay:-1s}
+.load :nth-child(3){background:colors.$base-light-loader-yellow;animation-delay:-0.5s}
+.load :last-child{background:colors.$base-dark-loader-green}
+
+@keyframes spin{
+  0%,100%{transform:translateX(200%)}
+  25%{transform:translateY(200%)}
+  50%{transform:translateX(0)}
+  75%{transform:translateY(0)}
+}

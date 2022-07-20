@@ -12,6 +12,7 @@ import { MessageType } from "src/app/enums/message-types.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
 import { ICard } from "src/app/interfaces/card.interface";
 import { GalleryService } from "src/app/services/gallery.service";
+import { LoaderService } from "src/app/services/loader.service";
 import { TitleService } from "src/app/services/title.service";
 import { ToastrService } from "src/app/services/toastr.service";
 
@@ -32,7 +33,8 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private toastrService: ToastrService,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private loaderService: LoaderService
   ) {
     this.paintingForm = this.formBuilder.group({
       editName: new FormControl("", [Validators.required]),
@@ -99,6 +101,7 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    this.loaderService.setLoading(true);
     if (this.paintingForm.invalid) {
       this.toastrService.showMessage(
         MessageTxts.ThereIsSmthWrongWithPic,
@@ -121,6 +124,7 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
     if (!this.id) {
       this.galleryService.createNewPainting(formData).subscribe({
         next: () => {
+          this.loaderService.setLoading(false);
           this.toastrService.showMessage(
             MessageTxts.PictureUploaded,
             MessageType.success
@@ -129,6 +133,7 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
           this.router.navigate(["/gallery/paintings"]);
         },
         error: (err) => {
+          this.loaderService.setLoading(false);
           this.toastrService.showMessage(
             MessageTxts.ThereIsSmthWrongWithPic,
             MessageType.warning
@@ -138,6 +143,7 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
     } else {
       this.galleryService.updatePainting(this.id, formData).subscribe({
         next: (e) => {
+          this.loaderService.setLoading(false);
           this.toastrService.showMessage(
             MessageTxts.PictureUpdated,
             MessageType.success
@@ -146,6 +152,7 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
           this.router.navigate(["gallery/paintings"]);
         },
         error: (err) => {
+          this.loaderService.setLoading(false);
           this.toastrService.showMessage(
             MessageTxts.ThereIsSmthWrongWithPic,
             MessageType.warning
