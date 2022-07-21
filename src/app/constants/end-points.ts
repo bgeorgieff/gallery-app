@@ -1,5 +1,5 @@
 export class API {
   static Endpoint(endpoint: string) {
-    return `http://localhost:9999/${endpoint}`;
+    return `https://gallery-api-app.herokuapp.com/${endpoint}`;
   }
 }
