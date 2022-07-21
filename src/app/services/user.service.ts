@@ -12,8 +12,8 @@ import { IUser } from "../interfaces/IUser.interface";
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  register(formData: IUser): Observable<string> {
-    return this.http.post<string>(
+  register(formData: IUser): Observable<object> {
+    return this.http.post<IUser>(
       API.Endpoint(UserEndpoints.register),
       formData
     );
