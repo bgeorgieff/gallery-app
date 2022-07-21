@@ -20,21 +20,11 @@ export class CardComponent {
     target: Element;
     visible: boolean;
   }): void {
-    this.renderer.removeClass(target, Classes.finishedCardAnimation);
-    this.renderer.addClass(
-      target,
-      visible ? Classes.cardAnimationClass : Classes.finishedCardAnimation
-    );
-    this.renderer.removeClass(
-      target,
-      !visible ? Classes.cardAnimationClass : Classes.inactive
-    );
+    if (visible) this.renderer.addClass(target, Classes.cardAnimationClass);
   }
 
   openDetails(painting: ICard) {
     this.matDialog.open(ModalWindowComponent, {
-      width: "85vw",
-      height: "85vh",
       data: painting,
     });
   }
