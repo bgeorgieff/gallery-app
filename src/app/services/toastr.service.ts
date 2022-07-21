@@ -6,7 +6,7 @@ import { IMessage } from "../interfaces/IMessage.interface";
   providedIn: "root",
 })
 export class ToastrService {
-  setMessage$ = new BehaviorSubject<IMessage>({} as IMessage);
+  private setMessage$ = new BehaviorSubject<IMessage>({} as IMessage);
   message$ = this.setMessage$.asObservable();
 
   showMessage(text: string, type: string) {
