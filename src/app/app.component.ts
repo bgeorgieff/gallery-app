@@ -10,18 +10,20 @@ import { ToastrService } from "./services/toastr.service";
 export class AppComponent implements OnInit, OnDestroy {
   message!: string;
   type!: string;
-  subscription!: Subscription;
+  subscriptions: Subscription[] = [];
 
   constructor(private toastrService: ToastrService) {}
 
   ngOnInit(): void {
-    this.subscription = this.toastrService.message$.subscribe((msg) => {
-      this.message = msg.text;
-      this.type = msg.type;
-    });
+    this.subscriptions.push(
+      this.toastrService.message$.subscribe((msg) => {
+        this.message = msg.text;
+        this.type = msg.type;
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 }

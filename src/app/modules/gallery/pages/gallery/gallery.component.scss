@@ -16,12 +16,22 @@
       .painting-container {
         max-width: 360px;
         height: auto;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-        .painting-name {
-          font-weight: 600;
+        div {
+          position: relative;
+          .painting {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            transition: 0.3s ease-in-out;
+            filter: brightness(80%);
+            &:hover {
+              filter: brightness(100%);
+              transform: scale(1.03);
+            }
+          }
+          .painting-name {
+            font-weight: 600;
+          } 
         }
       }
     }

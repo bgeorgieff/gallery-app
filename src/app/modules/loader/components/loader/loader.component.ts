@@ -9,18 +9,20 @@ import { LoaderService } from "src/app/services/loader.service";
   styleUrls: ["./loader.component.scss"],
 })
 export class LoaderComponent implements OnInit, OnDestroy {
-  subscription!: Subscription;
+  subscriptions: Subscription[] = [];
   isLoading = false;
 
   constructor(private loaderService: LoaderService) {}
 
   ngOnInit(): void {
-    this.subscription = this.loaderService.isLoading$.subscribe((status) => {
-      this.isLoading = status;
-    });
+    this.subscriptions.push(
+      this.loaderService.isLoading$.subscribe((status) => {
+        this.isLoading = status;
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 }

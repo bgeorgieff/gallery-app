@@ -25,11 +25,15 @@
         (inViewportAction)="onIntersection($event)"
       >
         <div class="painting-container">
-          <img
-            [src]="painting.imageUrl"
-            [alt]="painting.imageAltTxt || 'some-painting'"
-            (load)="stopLoading()"
-          />
+          <div>
+            <img
+              (click)="openPaintingView(painting)"
+              class="painting"
+              [src]="painting.imageUrl"
+              [alt]="painting.imageAltTxt || 'some-painting'"
+              (load)="stopLoading()"
+            />
+          </div>
           <div>
             <h3 class="painting-name">{{ painting.name }}</h3>
           </div>
@@ -52,3 +56,4 @@
     </div>
   </div>
 </section>
+<app-image-view></app-image-view>

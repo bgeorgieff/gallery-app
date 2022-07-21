@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, HostListener, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ImageViewService } from "src/app/services/image-view.service";
 
@@ -14,6 +14,10 @@ export class ImageViewComponent implements OnInit, OnDestroy {
   imageAlt!: string;
 
   constructor(private imageViewService: ImageViewService) {}
+
+  @HostListener("document:keydown.escape", ["$event"]) onKeydownHandler() {
+    this.closeImageView();
+  }
 
   ngOnInit(): void {
     this.subscriptions.push(
