@@ -12,4 +12,7 @@
     <mat-icon>timeline</mat-icon>
     <span class="nav-caption">About me</span>
   </a>
+  <a mat-list-item *ngIf="isLoggedIn()">
+    <span class="nav-caption" (click)="logOut()">Log out</span>
+  </a>
 </mat-nav-list>
