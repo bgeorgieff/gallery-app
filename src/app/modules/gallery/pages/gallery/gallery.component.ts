@@ -57,15 +57,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     target: Element;
     visible: boolean;
   }): void {
-    this.renderer.removeClass(target, Classes.finishedCardAnimation);
-    this.renderer.addClass(
-      target,
-      visible ? Classes.cardAnimationClass : Classes.finishedCardAnimation
-    );
-    this.renderer.removeClass(
-      target,
-      !visible ? Classes.cardAnimationClass : Classes.inactive
-    );
+    if (visible) this.renderer.addClass(target, Classes.cardAnimationClass);
   }
 
   viewPainting(painting: ICard) {

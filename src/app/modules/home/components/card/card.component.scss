@@ -13,16 +13,13 @@
   }
 }
 
-
-
 .btn-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.btn-container .vertical-spacing {
-  @media screen and(max-width: 335px) {
-    margin-top: 16px;
+  button {
+    margin: 8px;
+  }
+  @media screen and(max-width: 375px) {
+    justify-content: center;
   }
 }
