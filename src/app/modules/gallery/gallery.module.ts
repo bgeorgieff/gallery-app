@@ -28,6 +28,7 @@ import { MaterialModule } from "../material/material.module";
     ReactiveFormsModule,
     TitleModule,
     MaterialModule,
+    ImageViewModule,
   ],
 })
 export class GalleryModule {}

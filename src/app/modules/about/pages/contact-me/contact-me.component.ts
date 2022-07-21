@@ -26,7 +26,7 @@ import { ToastrService } from "src/app/services/toastr.service";
 export class ContactMeComponent implements OnInit, OnDestroy {
   title = PageTitles.contactPage;
   contactForm!: FormGroup;
-  subscriptions!: Subscription;
+  subscriptions: Subscription[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -82,31 +82,33 @@ export class ContactMeComponent implements OnInit, OnDestroy {
       message: this.contactForm.get("message")?.value,
     };
 
-    this.subscriptions = this.mailService.sendMail(formData).subscribe({
-      next: () => {
-        this.toastrService.showMessage(
-          MessageTxts.EmailSent,
-          MessageType.success
-        );
-        this.router.navigate(["/gallery/paintings"]);
-        this.contactForm.reset();
-      },
-      error: ({ error }) => {
-        if (error.status === ErrorMsgs.notFound) {
-          return this.toastrService.showMessage(
-            MessageTxts.ProvidedRefNotValid,
-            MessageType.info
+    this.subscriptions.push(
+      this.mailService.sendMail(formData).subscribe({
+        next: () => {
+          this.toastrService.showMessage(
+            MessageTxts.EmailSent,
+            MessageType.success
           );
-        }
-        this.toastrService.showMessage(
-          MessageTxts.EmailWasntSent,
-          MessageType.warning
-        );
-      },
-    });
+          this.router.navigate(["/gallery/paintings"]);
+          this.contactForm.reset();
+        },
+        error: ({ error }) => {
+          if (error.status === ErrorMsgs.notFound) {
+            return this.toastrService.showMessage(
+              MessageTxts.ProvidedRefNotValid,
+              MessageType.info
+            );
+          }
+          this.toastrService.showMessage(
+            MessageTxts.EmailWasntSent,
+            MessageType.warning
+          );
+        },
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 }

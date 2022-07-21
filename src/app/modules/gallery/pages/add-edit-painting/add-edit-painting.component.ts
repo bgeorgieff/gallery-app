@@ -21,7 +21,7 @@ import { ToastrService } from "src/app/services/toastr.service";
   styleUrls: ["./add-edit-painting.component.scss"],
 })
 export class AddEditPaintingComponent implements OnInit, OnDestroy {
-  id = this.activatedRoute.snapshot.paramMap.get("id");
+  id = "";
   painting: ICard = {} as ICard;
   paintingForm!: FormGroup;
   file!: File;
@@ -36,6 +36,7 @@ export class AddEditPaintingComponent implements OnInit, OnDestroy {
     private titleService: TitleService,
     private loaderService: LoaderService
   ) {
+    this.id = this.activatedRoute.snapshot.paramMap.get("id") ?? "";
     this.paintingForm = this.formBuilder.group({
       editName: new FormControl("", [Validators.required]),
       addFile: new FormControl("", [Validators.required]),

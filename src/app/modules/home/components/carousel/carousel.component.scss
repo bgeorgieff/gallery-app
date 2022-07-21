@@ -26,8 +26,6 @@
     -webkit-animation: top-text-animation 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: top-text-animation 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation-delay: 0.8s;
-    // -webkit-text-stroke-width: 1px;
-    // -webkit-text-stroke-color: black;
     z-index: 3;
   }
 
@@ -46,8 +44,6 @@
     -webkit-animation: top-text-animation 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: top-text-animation 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation-delay: 1.2s;
-    // -webkit-text-stroke-width: 1px;
-    // -webkit-text-stroke-color: black;
     z-index: 3;
   }
   @-webkit-keyframes top-text-animation {

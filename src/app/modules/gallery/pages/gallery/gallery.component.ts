@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit, Renderer2 } from "@angular/core";
-import { NavigationExtras, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
+import { Assets } from "src/app/enums/assets.enum";
 import { Classes } from "src/app/enums/classes.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
 import { ICard } from "src/app/interfaces/card.interface";
 import { GalleryService } from "src/app/services/gallery.service";
+import { ImageViewService } from "src/app/services/image-view.service";
 import { LoaderService } from "src/app/services/loader.service";
 import { TitleService } from "src/app/services/title.service";
 import { UserService } from "src/app/services/user.service";
@@ -25,7 +27,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
     private galleryService: GalleryService,
     private titleService: TitleService,
     private renderer: Renderer2,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private imageViewService: ImageViewService
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +70,11 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   viewPainting(painting: ICard) {
     this.router.navigate([`/gallery/painting/${painting._id}`]);
+  }
+
+  openPaintingView(painting: ICard) {
+    this.imageViewService.setImage(painting.imageUrl, painting.imageAltTxt);
+    this.imageViewService.switchDisplay(true);
   }
 
   navigateToAdd() {

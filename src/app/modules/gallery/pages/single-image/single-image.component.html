@@ -1,1 +1,29 @@
-<p>single-image works!</p>
+<div
+  fxFlex
+  fxLayoutAlign="center center"
+  fxLayout.gt-sm="row"
+  fxLayout.lt-sm="column"
+  class="single-image-container"
+>
+  <div class="painting-container">
+    <img [src]="painting.imageUrl" [alt]="painting.imageAltTxt" />
+  </div>
+  <div class="description-container">
+    <h2>
+      <span style="font-weight: 700">Painting name:</span> {{ painting.name }}
+    </h2>
+    <p class="painting-text">
+      <span style="font-weight: 700">Date created:</span>
+      {{ painting.dateCreated }}
+    </p>
+    <p class="painting-text">
+      <span style="font-weight: 700">Painting dimentions:</span>
+      {{ painting.size }}
+    </p>
+    <p class="painting-text">
+      <span style="font-weight: 700">Description:</span>
+      {{ painting.description }}
+    </p>
+    <button class="btn" (click)="makeEnquiry()">Make an enquiry</button>
+  </div>
+</div>
