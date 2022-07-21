@@ -25,10 +25,10 @@
       <div class="input-container">
         <div *ngIf="painting?.imageUrl" class="image-container">
           <p class="current-img-txt">Current image</p>
-          <img [src]="painting?.imageUrl" [alt]="painting?.imageAltTxt" />
+          <img [src]="painting.imageUrl" [alt]="painting.imageAltTxt" />
         </div>
         <label for="file" class="input-lbl">{{
-          painting?.imageUrl ? "Choose new image" : "Upload file"
+          painting.imageUrl ? "Choose new image" : "Upload file"
         }}</label>
         <div>
           <input
