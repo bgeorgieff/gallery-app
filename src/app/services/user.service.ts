@@ -28,7 +28,7 @@ export class UserService {
   }
 
   isAdmin() {
-    const cookie = document.cookie.split("=")[1] || "";
+    const cookie = this.getCookie();
     if (cookie) {
       const { isAdmin } = JSON.parse(window.atob(cookie.split(".")[1]));
       return !!isAdmin;
