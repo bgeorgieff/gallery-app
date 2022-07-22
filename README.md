@@ -20,8 +20,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Endpoints
 
-``
-
+```
 - user/login
 - user/register (the registered user will not have admin rights in the app. This is generally created for long-term use. Currently it's purpouse is to create admins, which need to be enabled as such from the backend).
 - gallery/paintings
@@ -30,6 +29,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - gallery/edit/some_id
 - about/contact-me
 - about/my-story
-  ``
+```
 
 # All CRUD operations are available in the app
