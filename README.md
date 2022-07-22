@@ -1,4 +1,6 @@
-### https://gallery-app-d.herokuapp.com/home
+### Live preview: https://gallery-app-d.herokuapp.com/home
+
+## REST API Swagger link: https://gallery-api-app.herokuapp.com/api
 
 # GalleryApp
 
@@ -6,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm i` and `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -16,14 +18,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Endpoints
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+``
 
-## Running end-to-end tests
+- user/login
+- user/register (the registered user will not have admin rights in the app. This is generally created for long-term use. Currently it's purpouse is to create admins, which need to be enabled as such from the backend).
+- gallery/paintings
+- gallery/painting/some_id
+- gallery/add
+- gallery/edit/some_id
+- about/contact-me
+- about/my-story
+  ``
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# All CRUD operations are available in the app
