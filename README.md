@@ -1,6 +1,6 @@
-### Live preview: https://gallery-app-d.herokuapp.com/home
+## Live preview: https://gallery-app-d.herokuapp.com/home
 
-## REST API Swagger link: https://gallery-api-app.herokuapp.com/api
+### REST API Swagger link: https://gallery-api-app.herokuapp.com/api
 
 # GalleryApp
 
