@@ -5,7 +5,7 @@ import { Assets } from "src/app/enums/assets.enum";
 import { Classes } from "src/app/enums/classes.enum";
 import { MessageType } from "src/app/enums/message-types.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 import { GalleryService } from "src/app/services/gallery.service";
 import { ImageViewService } from "src/app/services/image-view.service";
 import { LoaderService } from "src/app/services/loader.service";

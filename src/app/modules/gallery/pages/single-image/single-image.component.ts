@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, NavigationExtras, Router } from "@angular/router";
 import { Subscription } from "rxjs";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 import { GalleryService } from "src/app/services/gallery.service";
 
 @Component({

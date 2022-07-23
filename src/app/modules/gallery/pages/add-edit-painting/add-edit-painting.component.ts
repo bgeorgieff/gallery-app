@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 import { MessageTxts } from "src/app/enums/message-txt.enum";
 import { MessageType } from "src/app/enums/message-types.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 import { GalleryService } from "src/app/services/gallery.service";
 import { LoaderService } from "src/app/services/loader.service";
 import { TitleService } from "src/app/services/title.service";

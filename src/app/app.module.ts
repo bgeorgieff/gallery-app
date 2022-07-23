@@ -10,8 +10,8 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToasterModule } from "./modules/toaster/toaster.module";
-import { AuthInterceptor } from "./components/interceptors/auth.interceptor";
 import { LoaderModule } from "./modules/loader/loader.module";
+import { AuthInterceptor } from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [

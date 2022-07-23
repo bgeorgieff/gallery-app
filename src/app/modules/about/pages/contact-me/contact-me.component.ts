@@ -13,7 +13,7 @@ import { MessageTxts } from "src/app/enums/message-txt.enum";
 import { MessageType } from "src/app/enums/message-types.enum";
 import { PageTitles } from "src/app/enums/page-titles.enum";
 import { Regex } from "src/app/enums/regex.enum";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 import { IMail } from "src/app/interfaces/IMail.interface";
 import { MailService } from "src/app/services/mail.service";
 import { TitleService } from "src/app/services/title.service";

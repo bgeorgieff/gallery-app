@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { IImageView } from "../interfaces/imageView.interface";
+import { IImageView } from "../interfaces/IImage.interface";
 
 @Injectable({
   providedIn: "root",

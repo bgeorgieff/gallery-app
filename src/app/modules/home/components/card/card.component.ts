@@ -2,7 +2,7 @@ import { Component, Input, Renderer2 } from "@angular/core";
 import { Classes } from "src/app/enums/classes.enum";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalWindowComponent } from "../modal-window/modal-window.component";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 @Component({
   selector: "app-card",
   templateUrl: "./card.component.html",

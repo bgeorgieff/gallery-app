@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { API } from "../constants/end-points";
 import { GalleryEndPoints } from "../constants/gallery-endpoints";
-import { ICard } from "../interfaces/card.interface";
+import { ICard } from "../interfaces/ICard.interface";
 @Injectable({
   providedIn: "root",
 })

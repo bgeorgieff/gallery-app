@@ -6,7 +6,7 @@ import {
   OnInit,
   SimpleChanges,
 } from "@angular/core";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 
 @Component({
   selector: "app-carousel",

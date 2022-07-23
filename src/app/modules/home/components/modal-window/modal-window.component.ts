@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { NavigationExtras, Router } from "@angular/router";
 import { Assets } from "src/app/enums/assets.enum";
-import { ICard } from "src/app/interfaces/card.interface";
+import { ICard } from "src/app/interfaces/ICard.interface";
 import { ImageViewService } from "src/app/services/image-view.service";
 
 @Component({
