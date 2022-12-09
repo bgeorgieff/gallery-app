@@ -25,8 +25,21 @@ import { ToastrService } from "src/app/services/toastr.service";
 })
 export class ContactMeComponent implements OnInit, OnDestroy {
   title = PageTitles.contactPage;
-  contactForm!: FormGroup;
   subscriptions: Subscription[] = [];
+
+  contactForm = this.formBuilder.group({
+    name: ["", [Validators.required, Validators.maxLength(56)]],
+    paintingId: ["", [Validators.required]],
+    email: [
+      "",
+      [
+        Validators.required,
+        Validators.maxLength(56),
+        Validators.pattern(Regex.emailPattern),
+      ],
+    ],
+    message: ["", [Validators.required, Validators.maxLength(356)]],
+  });
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,24 +48,7 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     private mailService: MailService,
     private toastrService: ToastrService,
     private router: Router
-  ) {
-    this.contactForm = this.formBuilder.group({
-      name: new FormControl("", [
-        Validators.required,
-        Validators.maxLength(56),
-      ]),
-      paintingId: new FormControl("", [Validators.required]),
-      email: new FormControl("", [
-        Validators.required,
-        Validators.maxLength(56),
-        Validators.pattern(Regex.emailPattern),
-      ]),
-      message: new FormControl("", [
-        Validators.required,
-        Validators.maxLength(356),
-      ]),
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     const state = this.location.getState() as ICard;
@@ -76,10 +72,10 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     }
 
     const formData: IMail = {
-      name: this.contactForm.get("name")?.value,
-      paintingRef: this.contactForm.get("paintingId")?.value,
-      email: this.contactForm.get("email")?.value,
-      message: this.contactForm.get("message")?.value,
+      name: (this.contactForm.get("name") as FormControl)?.value,
+      paintingRef: (this.contactForm.get("paintingId") as FormControl)?.value,
+      email: (this.contactForm.get("email") as FormControl)?.value,
+      message: (this.contactForm.get("message") as FormControl)?.value,
     };
 
     this.subscriptions.push(

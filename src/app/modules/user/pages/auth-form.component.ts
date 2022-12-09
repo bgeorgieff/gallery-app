@@ -36,33 +36,30 @@ export class AuthFormComponent implements OnDestroy {
   ) {
     if (this.login) {
       this.authForm = this.formBuilder.group({
-        email: new FormControl("", [
-          Validators.required,
-          Validators.maxLength(56),
-          Validators.pattern(Regex.emailPattern),
-        ]),
-        password: new FormControl("", [
-          Validators.required,
-          Validators.maxLength(56),
-        ]),
+        email: [
+          "",
+          [
+            Validators.required,
+            Validators.maxLength(56),
+            Validators.pattern(Regex.emailPattern),
+          ],
+        ],
+        password: ["", [Validators.required, Validators.maxLength(56)]],
       });
       this.titleService.setTitle(PageTitles.login);
       this.btnInput = "Login";
     } else {
       this.authForm = this.formBuilder.group({
-        email: new FormControl("", [
-          Validators.required,
-          Validators.maxLength(56),
-          Validators.pattern(Regex.emailPattern),
-        ]),
-        password: new FormControl("", [
-          Validators.required,
-          Validators.maxLength(56),
-        ]),
-        rePassword: new FormControl("", [
-          Validators.required,
-          Validators.maxLength(56),
-        ]),
+        email: [
+          "",
+          [
+            Validators.required,
+            Validators.maxLength(56),
+            Validators.pattern(Regex.emailPattern),
+          ],
+        ],
+        password: ["", [Validators.required, Validators.maxLength(56)]],
+        rePassword: ["", [Validators.required, Validators.maxLength(56)]],
       });
       this.titleService.setTitle(PageTitles.register);
       this.btnInput = "Register";
