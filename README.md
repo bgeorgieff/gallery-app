@@ -1,3 +1,5 @@
+# Currently both Heroku links are not accessible due to change of Heroku's pricing plan from 28 November 2022. The README file as well as the environments will be updated once suitable alternatives are setup. If reference to the project is needed, please contact me directly.
+
 ## Live preview: https://gallery-app-d.herokuapp.com/home
 
 ### REST API Swagger link: https://gallery-api-app.herokuapp.com/api
